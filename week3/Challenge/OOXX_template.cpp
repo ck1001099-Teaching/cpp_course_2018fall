@@ -42,7 +42,7 @@ int main(){
 			cout << "Turn Player2 (X), please input two integer. (row, col)   ";
 		}
 
-		// 處理完家輸入的座標
+		// 儲存玩家輸入的座標
 		int row, col;
 		/*
 			Your code.
