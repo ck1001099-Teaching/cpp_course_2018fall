@@ -118,6 +118,11 @@ int CheckWinner(int board[][3]){
 		Your code.
 	*/
 	
+	// 確認和局
+	/*
+		Your code.
+	*/
+
 	return winner;
 }
 
