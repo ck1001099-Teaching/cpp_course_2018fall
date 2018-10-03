@@ -66,6 +66,9 @@ int main(){
 		} else if (winner == 2){
 			cout << "Player2 (X) win!!!" << endl;
 			break;
+		} else if (winner == 3){
+			cout << "Drew!" << endl;
+			break;
 		}
 
 		// 交換玩家順序
