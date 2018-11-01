@@ -6,7 +6,7 @@ using namespace std;
 void sortArray(string array[]);
 
 int main(){
-	string s1[] {"Java", "Assembly", "Delphi", "Basic", "Fortran", "Cobol"};
+	string s1[] = {"Java", "Assembly", "Delphi", "Aasic", "Fortran", "Cobol"};
 	cout << "排序前：";
 	for (int i = 0 ; i < 5 ; i++){
 		cout << s1[i] << " ";
