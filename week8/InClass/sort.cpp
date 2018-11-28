@@ -71,10 +71,48 @@ void shuffle(vector<int>* vec){
 void SelectionSort1(vector<int>* vec){
 	// Remove element from vector
 	//  * vec.erase(vec.begin() + index);
+	vector<int> sorted;
+	while ( (*vec).size() > 0 ){
+		int min = (*vec)[0];
+		int index = 0;
+		for (int i = 1; i < (*vec).size(); i++){
+			if ((*vec)[i] < min){
+				min = (*vec)[i];
+				index = i;
+			}
+		}
+		sorted.push_back(min);
+		(*vec).erase((*vec).begin() + index);
+	}
+	for (int i = 0 ; i < sorted.size(); i++){
+		(*vec).push_back(sorted[i]);
+	}
 }
 
 void SelectionSort2(vector<int>* vec){
+	for (int i = 0; i < (*vec).size()-1; i++){
+		int minIndex = i;
+		for (int j = i+1; j < (*vec).size(); j++){
+			if ((*vec)[j] < (*vec)[minIndex]){
+				minIndex = j;
+			}
+		}
+		if (minIndex != i){
+			int tmp = (*vec)[minIndex];
+			(*vec)[minIndex] = (*vec)[i];
+			(*vec)[i] = tmp;
+		}
+	}
 }
 
-void BubbleSort(vector<int>* vec){	
+void BubbleSort(vector<int>* vec){
+	for (int i = 0 ; i < (*vec).size()-1 ; i++){
+		for (int j = 0 ; j < (*vec).size()-i-1 ; j++){
+			if ((*vec)[j] > (*vec)[j+1]){
+				int tmp = (*vec)[j];
+				(*vec)[j] = (*vec)[j+1];
+				(*vec)[j+1] = tmp;
+			}
+		}
+	}
 }
