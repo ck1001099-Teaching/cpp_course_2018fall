@@ -13,11 +13,22 @@ using namespace std;
 class Object{
 public:
 	/* implement here */
+	Object(string);
+	~Object();
+	string GetName(){ return name; }
+	int GetIndex(){ return index; }
+	void SetIndex(int index){ this->index = index; }
+	static void info();
 private:	
 	string name;
 	int index;
 	/* implement here */
+	static int count;
+	static vector<Object*> objList;
 };
+
+int Object::count = 0;
+vector<Object*> Object::objList;
 
 int main(){
 	Object sphere1("sphere1");
@@ -30,6 +41,28 @@ int main(){
 
 	sphere1.info();
 	return 0;
+}
+
+Object::Object(string name){
+	this->name = name;
+	count = count + 1;
+	this->index = objList.size();
+	objList.push_back(this);
+}
+
+Object::~Object(){
+	count = count - 1;
+	objList.erase(objList.begin() + index);
+	for (int i = 0 ; i < objList.size() ; i++){
+		objList[i]->SetIndex(i);
+	}
+}
+
+void Object::info(){
+	cout << "總物體數目：" << count << endl;
+	for (int i = 0 ; i < objList.size(); i++){
+		cout << (*objList[i]).GetName() << " " << objList[i]->GetIndex() << endl;
+	}
 }
 
 
